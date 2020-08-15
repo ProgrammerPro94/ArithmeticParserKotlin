@@ -72,7 +72,7 @@ fun parseSimple(query:String?):Double? {
 
     var calcQuery = query
     for (op in operations) {
-        var index = 0;
+        var index = 0
         while (calcQuery?.contains(op)!! && (isInside(calcQuery, op, allIndex) || index == 0)) {
             calcQuery = calcQuery.replace("-+", "-")
             calcQuery = calcQuery.replace("--", "+")
@@ -99,6 +99,7 @@ fun parseSimple(query:String?):Double? {
                 }
             }
             index++
+            allIndex = getOpIndex(calcQuery, operations)
         }
     }
     return calcQuery?.toDouble()
